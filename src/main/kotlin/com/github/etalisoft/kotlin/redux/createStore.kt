@@ -115,7 +115,7 @@ fun <State> createStore(
 
     store = object : Store<State> {
         override var dispatch: Dispatch = ::dispatch
-        override var subscribe: Subscribe = ::subscribe
+        override val subscribe: Subscribe = ::subscribe
         override val getState: GetState<State> = ::getState
         override val replaceReducer: ReplaceReducer<State> = ::replaceReducer
         override val channel: ReceiveChannel<Event<State>>
