@@ -245,6 +245,7 @@ private fun requireUniqueKeys(vararg pair: Pair<String, Reducer<*>>) {
     require(keys.size == pair.size) { "combineReducers requires all keys to be unique" }
 }
 
+@Suppress("UNCHECKED_CAST")
 private fun <T> reduce(
     reducer: Pair<String, Reducer<T>>,
     state: Map<String, Any?>,
