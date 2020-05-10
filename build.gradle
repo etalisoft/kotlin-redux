@@ -56,7 +56,12 @@ compileKotlin {
 }
 
 compileTestKotlin {
-    kotlinOptions.jvmTarget = "1.8"
+    kotlinOptions {
+        jvmTarget = "1.8"
+        freeCompilerArgs += "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+        freeCompilerArgs += "-Xopt-in=kotlinx.coroutines.ObsoleteCoroutinesApi"
+        freeCompilerArgs += "-Xopt-in=kotlinx.coroutines.FlowPreview"
+    }
 }
 
 test {
@@ -123,7 +128,7 @@ bintray {
     publications = ['kotlin-redux']
     publish = false
     pkg {
-        repo = projectName
+        repo = 'maven'
         name = projectName
         userOrg = projectOrg
         licenses = [projectLicense]
