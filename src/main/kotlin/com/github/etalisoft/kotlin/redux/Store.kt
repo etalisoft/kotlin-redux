@@ -72,7 +72,7 @@ interface Store<T> {
      * @param listener A callback to be invoked on every dispatch.
      * @returns A function to remove this change listener.
      */
-    val subscribe: Subscribe
+    var subscribe: Subscribe
 
     val state: T
         get() = runBlocking { getState() }
