@@ -80,9 +80,11 @@ class CreateStoreTests {
         CoroutineScope(Dispatchers.Default).launch {
             sub2.consumeEach { ys.add(it.state.y) }
         }
-        delay(1) // NOTE: Need to delay in order to give sub2's coroutine a chance to run
 
+        delay(1)
         store.dispatch(Increment(0, 1))
+
+        delay(1)
         store.dispatch(Increment(1, 1))
 
         assertThat(xs).isEqualTo(listOf(1, 1, 2))
