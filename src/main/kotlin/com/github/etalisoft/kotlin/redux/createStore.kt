@@ -90,9 +90,7 @@ fun <State> createStore(
         if (action is Function<*>) throw Exception("Actions must be plain objects. Use custom middleware for async actions.")
         mutex.withLock {
             currentState = currentReducer(currentState, action)
-            CoroutineScope(Dispatchers.Default).launch {
-                channel.send(Event(currentState, action))
-            }
+            channel.send(Event(currentState, action))
             currentListeners = nextListeners
         }
 
