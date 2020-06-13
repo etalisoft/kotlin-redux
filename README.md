@@ -34,7 +34,7 @@ store.dispatch(ChangeAge(42))
 println(store.state) // Person(Name(first=Bob, last=Smith), age=42)
 ```
 
-## `Store&lt;T>`
+## `Store<T>`
 The store makes heavy use of coroutine suspend functions.
 The store handles concurrency issues internally ensuring critical interactions are mutually exclusive.
 ```kotlin
